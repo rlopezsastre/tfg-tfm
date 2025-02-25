@@ -3,7 +3,7 @@
 %	Departamento de Teoría de la Señal y Comunicaciones
 %	Universidad de Alcalá
 %***************************************************************************
-%Fecha de última motificación: 28-Mayo-2021
+%Fecha de última motificación: 25-Febrero-2025
 
 %******************
 %Tipo de documento
@@ -36,6 +36,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage{color}
 \usepackage[printonlyused]{acronym}
+\usepackage{eso-pic}
+\usepackage{tikz}
+
+\usepackage[pages=some]{background}
+\backgroundsetup{ scale=1, angle=0, opacity=.1, color=pink,contents={\includegraphics[width=.7\paperwidth]{figuras/logoEPS-UAH.jpg}}, vshift=-50pt,hshift=0pt}
+
+
+
 
 
 \usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
@@ -55,6 +63,26 @@ de tablas}\def\listfigurename{Lista de figuras}}
 \setlength{\textheight}{23cm} \setlength{\textwidth}{16cm}
 \setlength{\topmargin}{-0.25cm}\flushbottom
 
+% This is to allow do a clearpage and let the next one to be placed in
+% even pages (to set a backpage for example)
+\makeatletter
+\newcommand*{\cleartoleftpage}{%
+  \clearpage
+  \if@twoside
+  \ifodd\c@page
+  \hbox{}\newpage
+  \if@twocolumn
+  \hbox{}\newpage
+  \fi
+  \fi
+  \fi
+}
+\makeatother
+
+\newenvironment{bottomparagraph}{\par\vspace*{\fill}}{\clearpage}
+
+%Colores para las portadas
+\definecolor{pantone293}{RGB}{35,91,168}
 
 
 %***************
@@ -77,6 +105,17 @@ de tablas}\def\listfigurename{Lista de figuras}}
 %***********************
 \begin{document}
 \setcounter{tocdepth}{4} \setcounter{secnumdepth}{3}
+
+%Para el TFG descomenta la siguiente línea
+\include{portada-tfg}
+%Para el TFM descomenta la siguiente línea
+%\include{portada-tfm}
+
+%Introduce hoja en blanco
+\newpage
+\thispagestyle{empty}
+\hspace*{0.5cm}
+\newpage
 
 \frontmatter
 
@@ -156,7 +195,11 @@ de tablas}\def\listfigurename{Lista de figuras}}
 %Toma los datos del fichero bibliografia-proyecto.bib
 \bibliography{bibliografia-proyecto}
 
-%\printindex
+%Para el TFG descomenta la siguiente línea
+\include{contraportada-tfg}
+%Para el TFM descomenta la siguiente línea
+%\include{contraportada-tfm}
+
 
 \end{document}
 

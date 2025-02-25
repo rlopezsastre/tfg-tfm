@@ -1,0 +1,26 @@
+\chapter*{ }
+\thispagestyle{empty}
+\cleartoleftpage
+\thispagestyle{empty}
+
+\BgThispage
+
+\definecolor{headingPortadaTFM}{RGB}{152,118,52}
+\definecolor{textoHeadingPortadaTFM}{RGB}{208,205,102}
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[yshift=-5cm] at (current page.north west)
+  {
+    \begin{tikzpicture}[remember picture, overlay]
+      \draw[fill=headingPortadaTFM,headingPortadaTFM] (0,0) rectangle (\paperwidth,5cm);
+      \node [yshift=3cm, xshift=0.5\paperwidth, font=\Huge, text centered, midway] {\color{textoHeadingPortadaTFM} Universidad de Alcalá};
+      \node [yshift=2cm, xshift=0.5\paperwidth, font=\Huge, text centered, midway] {\color{textoHeadingPortadaTFM} Escuela Politécnica Superior};
+    \end{tikzpicture}
+  };
+\end{tikzpicture}
+
+\large
+\vspace{19cm}
+\begin{center}
+  \centerline{\includegraphics[height=2.5cm]{figuras/logo-uah-contraportada.pdf}}
+\end{center}
